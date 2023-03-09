@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\vaid_samra_hw3.props" />
+</Project>

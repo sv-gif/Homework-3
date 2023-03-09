@@ -1,0 +1,54 @@
+﻿@model vaid_samra_hw3.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "SearchResults";
+}
+
+<h1>SearchResults</h1>
+
+<div>
+    <h4>SearchViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SearchDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SearchDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SearchFormat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SearchFormat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SearchGenreID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SearchGenreID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SearchPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SearchPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SearchPriceType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SearchPriceType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SearchPublished)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SearchPublished)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SearchName">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,73 @@
+﻿@model vaid_samra_hw3.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "DetailedSearch";
+}
+
+<h1>Detailed Search</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DisplaySearchResults" method="get">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="SearchName" class="control-label"></label>
+                <input asp-for="SearchName" class="form-control" />
+                <span asp-validation-for="SearchName" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="SearchDescription" class="control-label"></label>
+                <input asp-for="SearchDescription" class="form-control" />
+                <span asp-validation-for="SearchDescription" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="SearchFormat" class="control-label"></label>
+                <select asp-for="SearchFormat" asp-items="Html.GetEnumSelectList<Format>()" class="form-control">
+                    <option selected="selected" value="">All Formats</option>
+                </select>
+                <span asp-validation-for="SearchFormat" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="SearchGenreID" class="control-label"></label>
+                @Html.DropDownListFor(model => model.SearchGenreID, (SelectList)ViewBag.AllGenres, new {@class="form-control"})
+                <span asp-validation-for="SearchGenreID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchPrice" class="control-label"></label>
+                <input asp-for="SearchPrice" type="number" step="1" class="form-control" />
+                <span asp-validation-for="SearchPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchPriceType" class="control-label"></label><br/> 
+                <input type="radio" asp-for="SearchPriceType" value="GreaterThan" />Greater Than<br/>
+                <input type="radio" asp-for="SearchPriceType" value="LessThan" />Less Than<br />
+                <!--  <span asp-validation-for="SearchPriceType" class="text-danger"></span> -->
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchPublished" class="control-label"></label>
+                <input asp-for="SearchPublished" class="form-control" />
+                <span asp-validation-for="SearchPublished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
